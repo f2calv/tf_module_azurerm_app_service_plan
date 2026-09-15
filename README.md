@@ -1,14 +1,15 @@
-# Terraform Module: Azure App Service
+---
+title: Terraform Module for Azure App Service
+description: Provision an Azure Service Plan with a Linux or Windows Web App
+---
 
 Provisions an [Azure Service Plan](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan) with either a [Linux Web App](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app) or [Windows Web App](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app).
-
-> **Note:** This module was migrated from the deprecated `azurerm_app_service_plan` / `azurerm_app_service` resources (removed in azurerm v4.x) to the current `azurerm_service_plan` / `azurerm_linux_web_app` / `azurerm_windows_web_app` resources.
 
 ## Usage
 
 ```hcl
 module "app" {
-  source              = "git::https://github.com/f2calv/tf_module_azurerm_app_service_plan.git//src?ref=main"
+  source              = "git::https://github.com/f2calv/tf_module_azurerm_app_service_plan.git//src?ref=v0.2.0"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   service_plan_name   = "my-service-plan"
@@ -23,10 +24,10 @@ module "app" {
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `resource_group_name` | `string` | — | Name of the parent resource group |
+| `resource_group_name` | `string` | Required | Name of the parent resource group |
 | `location` | `string` | `West Europe` | Location of the parent resource group |
-| `service_plan_name` | `string` | — | Name of the service plan |
-| `app_service_name` | `string` | — | Name of the web app |
+| `service_plan_name` | `string` | Required | Name of the service plan |
+| `app_service_name` | `string` | Required | Name of the web app |
 | `os_type` | `string` | `Linux` | OS type for the service plan (Linux or Windows) |
 | `sku_name` | `string` | `F1` | SKU name for the service plan (e.g. F1, B1, S1, P1v3) |
 | `tags` | `map(string)` | `{}` | Any tags that should be present on the resources |
