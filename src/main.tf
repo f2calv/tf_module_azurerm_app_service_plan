@@ -9,7 +9,7 @@ resource "azurerm_service_plan" "this" {
 }
 
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app
-resource "azurerm_linux_web_app" "this" {
+resource "azurerm_linux_web_app" "this_linux" {
   count               = var.os_type == "Linux" ? 1 : 0
   name                = var.app_service_name
   location            = var.location
@@ -21,7 +21,7 @@ resource "azurerm_linux_web_app" "this" {
 }
 
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app
-resource "azurerm_windows_web_app" "this" {
+resource "azurerm_windows_web_app" "this_windows" {
   count               = var.os_type == "Windows" ? 1 : 0
   name                = var.app_service_name
   location            = var.location
