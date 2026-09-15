@@ -1,7 +1,4 @@
----
-title: Terraform Module for Azure App Service
-description: Provision an Azure Service Plan with a Linux or Windows Web App
----
+# Terraform Module for Azure App Service
 
 Provisions an [Azure Service Plan](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan) with either a [Linux Web App](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app) or [Windows Web App](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app).
 
