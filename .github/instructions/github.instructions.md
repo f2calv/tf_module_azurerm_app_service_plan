@@ -11,6 +11,11 @@ applyTo: '**'
 - Prefer a clean versioned release over compatibility code. Consumers remain on an older immutable tag until they are ready to migrate.
 - Remove commented-out implementations and speculative placeholders. Git retains history.
 
+## Branch Naming
+
+- Name feature branches `<github_username>/yyyy-MM-concise-name`, for example `f2calv/2026-09-tf-docs`.
+- Use the branch creation year and month, followed by a short lowercase kebab-case description.
+
 ## Semantic Versioning
 
 - Before adding a `+semver:` directive, inspect every commit between the merge base with `origin/main` and `HEAD`.
@@ -24,6 +29,9 @@ applyTo: '**'
 - Keep the module source example in `README.md` pinned to the immutable tag that GitVersion predicts for the final branch.
 - Exclude feature-branch prerelease labels from the README tag.
 - Recalculate the expected tag after the final commit. Do not assume that an earlier calculation remains valid.
+- Tag reusable Terraform modules with an immutable plain semantic version such as `1.2.3`; reserve the `v` prefix and moving major aliases for GitHub Actions.
+- Never publish a feature-branch or CI label such as `-ci.7` as a stable module release.
+- Pass `tag-prefix: ''` and `move-major-tag: false` to the release workflow for Terraform modules.
 
 ## Continuous Integration
 
